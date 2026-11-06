@@ -1,0 +1,183 @@
+GOOGLE DORKS LIST
+=================
+
+Ready-to-use dorks, grouped by what they find.
+Last checked: November 2026.
+
+Replace example.com with your own domain, or one you have
+permission to test. Running searches is passive, but what you
+do with the results isn't. Stick to what you're allowed to look at.
+
+
+-----------------------------------------------------------------
+DOCUMENTS
+-----------------------------------------------------------------
+
+site:example.com filetype:pdf
+site:example.com (filetype:doc OR filetype:docx)
+site:example.com (filetype:xls OR filetype:xlsx OR filetype:csv)
+site:example.com (filetype:ppt OR filetype:pptx)
+site:example.com filetype:txt
+site:example.com filetype:pdf "internal use only"
+site:example.com filetype:pdf "confidential"
+site:example.com filetype:pdf "not for distribution"
+site:example.com filetype:pdf "annual report" after:2024
+site:example.com (filetype:xls OR filetype:xlsx) "email"
+
+
+-----------------------------------------------------------------
+OPEN DIRECTORIES
+Folders the web server lists out instead of hiding.
+-----------------------------------------------------------------
+
+site:example.com intitle:"index of"
+site:example.com intitle:"index of" "parent directory"
+site:example.com intitle:"index of" (backup OR bak OR old)
+site:example.com intitle:"index of" (uploads OR files)
+site:example.com intitle:"index of" (.git OR .svn)
+site:example.com intitle:"index of" "last modified"
+
+
+-----------------------------------------------------------------
+CONFIG FILES
+Settings files that shouldn't be public.
+-----------------------------------------------------------------
+
+site:example.com ext:env
+site:example.com (ext:conf OR ext:cfg OR ext:ini)
+site:example.com (ext:xml OR ext:json) inurl:config
+site:example.com (ext:yml OR ext:yaml)
+site:example.com inurl:web.config
+site:example.com inurl:wp-config
+site:example.com ext:htaccess
+
+
+-----------------------------------------------------------------
+LOGS, DATABASES AND BACKUPS
+-----------------------------------------------------------------
+
+site:example.com ext:log
+site:example.com ext:log ("error" OR "warning")
+site:example.com (ext:sql OR ext:db OR ext:sqlite)
+site:example.com (ext:bak OR ext:old OR ext:backup)
+site:example.com (ext:zip OR ext:tar OR ext:gz) inurl:backup
+site:example.com ext:sql "INSERT INTO"
+
+
+-----------------------------------------------------------------
+LOGIN PAGES AND ADMIN PANELS
+-----------------------------------------------------------------
+
+site:example.com inurl:login
+site:example.com (inurl:admin OR inurl:administrator)
+site:example.com (inurl:dashboard OR inurl:portal)
+site:example.com (intitle:"sign in" OR intitle:"log in")
+site:example.com inurl:wp-admin
+site:example.com inurl:wp-login.php
+site:example.com (inurl:cpanel OR inurl:webmail)
+site:example.com inurl:phpmyadmin
+
+
+-----------------------------------------------------------------
+ERROR MESSAGES
+Error pages often give away software versions and file paths.
+-----------------------------------------------------------------
+
+site:example.com ("stack trace" OR "traceback")
+site:example.com ("fatal error" OR "parse error")
+site:example.com "warning:" "on line"
+site:example.com "sql syntax" "near"
+site:example.com intext:"debug" inurl:debug
+
+
+-----------------------------------------------------------------
+SUBDOMAINS AND DEV SITES
+-----------------------------------------------------------------
+
+site:*.example.com -site:www.example.com
+site:*.*.example.com
+site:example.com (inurl:dev OR inurl:staging OR inurl:test)
+site:example.com (inurl:uat OR inurl:qa OR inurl:beta)
+site:example.com (inurl:swagger OR inurl:api-docs)
+site:example.com inurl:api
+site:example.com inurl:graphql
+
+
+-----------------------------------------------------------------
+SOFTWARE AND TECH STACK
+Work out what a site is built on.
+-----------------------------------------------------------------
+
+site:example.com intext:"powered by"
+site:example.com inurl:wp-content
+site:example.com inurl:/wp-json/
+site:example.com intitle:"phpinfo()"
+site:example.com intext:"apache" intitle:"test page"
+site:example.com inurl:readme (ext:txt OR ext:md)
+site:example.com (inurl:changelog OR inurl:CHANGELOG)
+
+
+-----------------------------------------------------------------
+CODE AND PASTE SITES
+Where a company's name or domain turns up in code or pastes.
+-----------------------------------------------------------------
+
+site:github.com "example.com"
+site:gitlab.com "example.com"
+site:bitbucket.org "example.com"
+site:pastebin.com "example.com"
+site:trello.com "example.com"
+site:stackoverflow.com "example.com"
+
+
+-----------------------------------------------------------------
+CLOUD STORAGE
+Files shared publicly from cloud services.
+-----------------------------------------------------------------
+
+site:s3.amazonaws.com "example"
+site:blob.core.windows.net "example"
+site:storage.googleapis.com "example"
+site:drive.google.com "example.com"
+site:docs.google.com "example.com"
+site:dropbox.com/s "example"
+
+
+-----------------------------------------------------------------
+OSINT AND PEOPLE
+Find your own footprint, or research an organisation.
+-----------------------------------------------------------------
+
+"name@example.com" -site:example.com
+"@example.com" filetype:pdf
+"@example.com" (filetype:xls OR filetype:csv)
+site:linkedin.com/in "Example Ltd"
+site:linkedin.com/in "Example Ltd" "engineer"
+"firstname lastname" -site:linkedin.com
+"username" (site:reddit.com OR site:twitter.com OR site:x.com)
+
+
+-----------------------------------------------------------------
+BUG BOUNTY
+Find programmes and in-scope assets.
+-----------------------------------------------------------------
+
+inurl:/.well-known/security.txt
+"vulnerability disclosure" inurl:security
+"responsible disclosure" "reward"
+intext:"bug bounty" inurl:security
+site:example.com inurl:security.txt
+site:example.com (inurl:redirect OR inurl:url= OR inurl:return=)
+
+
+-----------------------------------------------------------------
+GENERAL RESEARCH
+Not security - just useful.
+-----------------------------------------------------------------
+
+site:gov.uk filetype:pdf "statistics" after:2025
+site:ac.uk filetype:pdf "dissertation" "machine learning"
+site:reddit.com "best budget laptop" after:2026
+"how to * kubernetes" site:stackoverflow.com
+intitle:"cheat sheet" filetype:pdf linux
+site:example.com -inurl:https
